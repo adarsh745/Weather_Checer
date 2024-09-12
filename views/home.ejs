@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather Checker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+         href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.jpg">
+    <style>
+    body {
+      background-image: url("<%=ur%>");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+  </head>
+  <%-console.log(ur);%>
+  <body class="bod">
+    <div class=" heading">
+      <h1> The Weather</h1>
+    </div>
+    <div class="container-fluid main_header">
+      <div class="row">
+        <div class="col-md-10 col-12 mx-auto sea">
+          <div class="main_content">
+            <form class="temp_form" action="/" method="post">
+              <input type="text" id="cityName" placeholder="Enter Your City Name" name="city" autocomplete="off">
+              <input type="submit" name="" value="search" id="submitBtn">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+<script type="text/javascript">
+  let objdata = <%=objdata%>;
+</script>
+    <div class="container">
+  <div class="row">
+    <div class="col">
+      <p class="front" id="cityname"><%=objdata.name%>,<%=objdata.sys.country%></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="front_layer" id="dateandtime"><%=date%></p>
+    </div>
+  </div>
+  <div class="row mid_layer">
+    <div class="col">
+      <p class=""><%=objdata.weather[0].main%></p>
+      <img src="<%=fa%>" alt="">
+    </div>
+    <div class="col">
+      <p id="temp_ac"><span><%=objdata.main.temp%></span><sup>o</sup>C</p>
+      <p id="min_temp" class="secondary">min_temp: <%=objdata.main.temp_min%><sup>o</sup>C</p>
+      <p id="max_temp" class="secondary">max_temp:<%=objdata.main.temp_max%><sup>o</sup>C</p>
+    </div>
+    <div class="col">
+      <p id="cloud">Clouds</p>
+      <p class="secondary"><%=objdata.clouds.all%>%</p>
+    </div>
+    <div class="col" >
+      <p id="windspeed">Wind Speed</p>
+      <p class="secondary"><%=objdata.wind.speed%> m/s</p>
+    </div>
+    <div class="col">
+      <p id="humidity">Humidity</p>
+      <p class="secondary"><%=objdata.main.humidity%>%</p>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
